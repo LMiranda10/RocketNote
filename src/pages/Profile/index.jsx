@@ -1,10 +1,9 @@
 import { Container, Form, Avatar } from "./styles";
 
-import { FiArrowLeft } from 'react-icons/fi'
 import { Input } from "../../components/input";
 import { Button } from "../../components/Button";
-import { FiCamera } from "react-icons/fi";
-import { FiUser, FiMail, FiLock } from "react-icons/fi"
+
+import { FiUser, FiMail, FiLock, FiCamera, FiArrowLeft } from "react-icons/fi"
 
 export function Profile() {
     return (

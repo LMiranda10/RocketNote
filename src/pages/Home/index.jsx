@@ -41,7 +41,7 @@ export function Home( ) {
                 </Section>
             </Content>
 
-            <NewNotes>
+            <NewNotes to="/new">
                 <FiPlus/>
                 Criar nota
             </NewNotes>

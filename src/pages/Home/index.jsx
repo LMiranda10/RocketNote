@@ -6,9 +6,6 @@ import { Section } from '../../components/Section'
 import { ButtonText } from '../../components/ButtonText'
 import { Input } from '../../components/input'
 import { Note } from '../../components/Note'
-import { Tag } from '../../components/Tag'
-
-
 
 
 export function Home( ) {

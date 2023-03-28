@@ -5,7 +5,7 @@ import GlobalStyle from './styles/global'
 
 import theme from './styles/theme'
 
-import { Profile } from './pages/Profile'
+import { Routes } from './routes'
 
 
 ReactDOM.createRoot(document.getElementById('root')).render(
@@ -13,7 +13,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
     <ThemeProvider theme={theme}>
 
       <GlobalStyle/>
-       <Profile/>
+       <Routes/>
 
     </ThemeProvider>
   </React.StrictMode>,

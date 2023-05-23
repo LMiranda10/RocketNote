@@ -6,10 +6,17 @@ import { FiLogIn, FiMail } from "react-icons/fi"
 
 import { Background, Container, Form } from "./styles";
 import { Link } from "react-router-dom";
+import { useState } from "react";
 
 export function SignIn() {
-     const data = useAuth();
-     console.log("MEU CONTEXTO =>", data)
+     const [ email, setEmail ] = useState("")
+     const [ password, setPassword ] = useState("")
+
+     const { signIn } = useAuth();
+
+     function handleSignIn() {
+          signIn({ email, password })
+     }
 
      return (
           <Container>
@@ -23,15 +30,17 @@ export function SignIn() {
                          placeholder="E-mail"
                          type="text"
                          icon= { FiMail }
+                         onChange = {e => setEmail(e.target.value)}
                     />
 
                     <Input
                          placeholder="Senha"
                          type="password"
                          icon= { FiLogIn }
+                         onChange = {e => setPassword(e.target.value)}
                     />
 
-                    <Button title="Entrar"/>
+                    <Button title="Entrar" onClick = { handleSignIn } />
 
                     <Link to="/register">
                          Criar conta

@@ -1,20 +1,20 @@
 import { Container } from "./styles";
 import { FiPlus, FiX } from "react-icons/fi"
 
-export function Noteitem({isNew, value, onClick, ...rest}) {
+export function Noteitem({ isNew = false, value, onClick, ...rest}) {
     return (
         <Container isNew={isNew}>
             <input 
             type="text"
             value={value}
-            readOnly={isNew}
+            readOnly={!isNew}
             {...rest}
             />
 
             <button 
-            onClick={onClick}
             type="button"
-            className={ isNew? 'button-add' : 'button-delete' }
+            className={ isNew ? 'button-add' : 'button-delete' }
+            onClick={onClick}
             >
                 {isNew ? <FiPlus/> : <FiX/>}
             </button>

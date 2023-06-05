@@ -12,14 +12,16 @@ import { Section } from "../../components/Section"
 import { Noteitem } from "../../components/Noteitem";
 
 export function New() {
+    const navigate = useNavigate()
+
     const [title, setTitle] = useState("")
     const [description, setDescription] = useState("")
 
     const [links, setLinks] = useState([]);
-    const [newLink, setNewLink] = useState();
+    const [newLink, setNewLink] = useState("");
 
     const [tags, setTags] = useState([]);
-    const [newTag, setNewTag] = useState();
+    const [newTag, setNewTag] = useState("");
 
 
     function handleAddLink() {
@@ -49,7 +51,7 @@ export function New() {
         });
 
         alert("Nota criada com sucesso");
-        useNavigate("/");
+        navigate("/");
     }
 
     return (

@@ -32,16 +32,9 @@ export const Form = styled.form`
         align-items: center;
         justify-content: space-between;
         
-        a {
+        button {
             color: ${({theme})=>theme.COLORS.GRAY_100};
+            font-size: 20px;
         }
-    }
-
-    >h2 {
-        
-        padding-bottom: 16px;
-        color: ${({theme})=>theme.COLORS.GRAY_100};
-        border-bottom: solid 0.1px;
-        border-color: ${({theme})=>theme.COLORS.GRAY_300};
     }
 `

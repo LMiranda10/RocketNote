@@ -2,7 +2,7 @@ import { Container, Form } from "./styles";
 
 import { useState } from "react";
 import { api } from "../../Services/api";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 import { Header } from "../../components/Header"
 import { Input } from "../../components/input"
@@ -10,6 +10,7 @@ import { Button } from "../../components/Button"
 import { Textarea } from "../../components/Textarea";
 import { Section } from "../../components/Section"
 import { Noteitem } from "../../components/Noteitem";
+import { ButtonText } from "../../components/ButtonText";
 
 export function New() {
     const navigate = useNavigate()
@@ -23,6 +24,9 @@ export function New() {
     const [tags, setTags] = useState([]);
     const [newTag, setNewTag] = useState("");
 
+    function handleBack() {
+        navigate(-1)
+      }
 
     function handleAddLink() {
         setLinks(prevState => [...prevState, newLink]);
@@ -43,6 +47,15 @@ export function New() {
     }
 
     async function handleNewNote() {
+        if(newLink){
+            return alert("Adicione ao menos um link")
+        }
+        
+        if(newTag){
+            return alert("Adicione uma tag")
+        }
+
+
         await api.post("/notes", {
             title,
             description,
@@ -51,7 +64,7 @@ export function New() {
         });
 
         alert("Nota criada com sucesso");
-        navigate("/");
+        navigate(-1);
     }
 
     return (
@@ -65,7 +78,7 @@ export function New() {
                                 Criar nota
                             </h1>
 
-                            <Link to="/">Voltar</Link>
+                            <ButtonText title={"Voltar"} onClick={handleBack}/>
 
                         </header>
 
@@ -104,11 +117,11 @@ export function New() {
                         <Section title={"Marcadores"}>
                             <div className="tags">
                                 {
-                                    tags.map((tag, index) => (
+                                    tags.map((tags, index) => (
                                         <Noteitem
                                             key={String(index)}
                                             value={tags}
-                                            onClick={()=>handleRemoveTag(tag)}
+                                            onClick={()=>handleRemoveTag(tags)}
                                         />
                                     ))
                                 }

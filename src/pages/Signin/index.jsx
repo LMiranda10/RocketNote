@@ -8,7 +8,7 @@ import { Background, Container, Form } from "./styles";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 
-export function signIn() {
+export function SignIn() {
      const [ email, setEmail ] = useState("")
      const [ password, setPassword ] = useState("")
 
